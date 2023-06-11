@@ -34,6 +34,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-#cache
+# cache
 /src/.next/cache/**
-./contentlayer/**
+
+# contentlayer
+.contentlayer
