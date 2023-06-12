@@ -13,6 +13,10 @@ interface Props {
   }
 }
 
+export const generateStaticParams = () => {
+  return allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
+}
+
 export const generateMetadata = ({ params }: Props) => {
   const post = allPosts.find((p) => p._raw.flattenedPath === params.slug)
 
