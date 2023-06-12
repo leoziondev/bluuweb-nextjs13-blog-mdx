@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    @apply text-slate-600
+}
+
+h2 {
+    @apply my-2 text-indigo-500 text-2xl
+}
+
+p {
+    @apply text-slate-500 my-2
+}

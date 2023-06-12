@@ -1,5 +1,8 @@
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
+import Container from '../../components/ui/Container'
+import Content from '../../components/ui/Content'
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { allPosts } from 'contentlayer/generated'
@@ -31,17 +34,19 @@ const PostSlug = ({ params }: Props) => {
   }
 
   return (
-    <div>
-      <h1 className="text-center my-4 text-3xl">{post.title}</h1>
-      <time className="text-xs">
-        {new Date(post.date).toLocaleDateString('pt-BR', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        })}
-      </time>
-      <MDXContent />
-    </div>
+    <Container>
+      <Content>
+        <h1 className="text-center my-4 text-3xl">{post.title}</h1>
+        <time className="text-xs">
+          {new Date(post.date).toLocaleDateString('pt-BR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </time>
+        <MDXContent />
+      </Content>
+    </Container>
   )
 }
 
