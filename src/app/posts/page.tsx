@@ -21,7 +21,7 @@ const Posts = () => {
         <h1 className="text-center my-4 text-3xl">Posts</h1>
         <div className="grid gap-4">
           {posts.map((post) => (
-            <article key={post.id}>
+            <article key={post._id}>
               <h2 className="text-2xl">
                 <Link href={post.url}>{post.title}</Link>
               </h2>
