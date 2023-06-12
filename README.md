@@ -1,6 +1,15 @@
 # Blog project with NextJS 13 + MDX + ContentLayer
 
-## Instalations this project
+## Technologies
+- NextJS 13
+- Typescript
+- ContentLayer
+- MDX
+- Tailwindcss
+- Eslint
+- Prettier
+
+## Installations this project
 
 Config eslint
 ```
@@ -35,6 +44,10 @@ ContentLayer
 npm i contentlayer next-contentlayer
 ```
 
+## Documentation
+- [ContentLayer](https://www.contentlayer.dev/docs/getting-started-cddd76b7)
+- [Bluuweb Guide](https://bluuweb.dev/09-next/03-blog.html)
+
 ## Getting Started
 
 First, run the development server:
@@ -44,8 +57,6 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
