@@ -10,6 +10,30 @@ h2 {
     @apply my-2 text-indigo-500 text-2xl
 }
 
+h3 {
+    @apply my-2 text-indigo-700 text-xl
+}
+
 p {
     @apply text-slate-500 my-2
+}
+
+p code {
+    @apply bg-slate-200 px-2 rounded text-sm
+}
+
+pre > code {
+    @apply grid;
+}
+  
+pre {
+    @apply p-4 rounded my-4 overflow-x-auto;
+}
+  
+article pre code {
+    @apply bg-transparent text-sm border-none;
+}
+
+p > code, h3 > code {
+    @apply bg-slate-200 px-2 rounded text-sm;
 }

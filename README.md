@@ -43,6 +43,10 @@ ContentLayer
 ```
 npm i contentlayer next-contentlayer
 ```
+Pretty Code
+```
+npm i rehype-pretty-code shiki
+```
 
 ## Documentation
 - [ContentLayer](https://www.contentlayer.dev/docs/getting-started-cddd76b7)

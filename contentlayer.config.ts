@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import rehypePrettyCode from 'rehype-pretty-code'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -29,7 +30,28 @@ export const Post = defineDocumentType(() => ({
   }
 }))
 
+const rehypeoptions = {
+  // Use one of Shiki's packaged themes
+  theme: 'one-dark-pro',
+  // Set to true to keep the background color
+  keepBackground: true,
+  onVisitLine(node: any) {
+    if (node.children.length === 0) {
+      node.children = [{ type: 'text', value: ' ' }]
+    }
+  },
+  onVisitHighlightedLine(node: any) {
+    node.properties.className.push('highlighted')
+  },
+  onVisitHighlightedWord(node: any, id: any) {
+    node.properties.className = ['word']
+  }
+}
+
 export default makeSource({
   contentDirPath: 'posts',
-  documentTypes: [Post]
+  documentTypes: [Post],
+  mdx: {
+    rehypePlugins: [[rehypePrettyCode, rehypeoptions]]
+  }
 })
