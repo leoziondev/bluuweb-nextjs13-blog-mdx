@@ -1,7 +1,7 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import Link from 'next/link'
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { allPosts, Post } from 'contentlayer/generated'
 
 const posts: Post[] = allPosts.sort((a, b) => b.date.localeCompare(a.date))
