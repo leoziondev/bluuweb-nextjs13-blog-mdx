@@ -1,5 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
+import Link from 'next/link'
+
 import { allPosts, Post } from 'contentlayer/generated'
 
 const posts: Post[] = allPosts.sort((a, b) => b.date.localeCompare(a.date))
@@ -11,7 +13,9 @@ const Posts = () => {
       <div className="grid gap-4">
         {posts.map((post) => (
           <article key={post.id}>
-            <h2 className="text-2xl">{post.title}</h2>
+            <h2 className="text-2xl">
+              <Link href={post.url}>{post.title}</Link>
+            </h2>
             <time className="text-xs">
               {new Date(post.date).toLocaleDateString('pt-BR', {
                 year: 'numeric',
