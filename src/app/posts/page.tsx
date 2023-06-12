@@ -6,6 +6,11 @@ import { allPosts, Post } from 'contentlayer/generated'
 
 const posts: Post[] = allPosts.sort((a, b) => b.date.localeCompare(a.date))
 
+export const metadata = {
+  title: 'List all posts',
+  description: 'Describe posts - Generate by create next app'
+}
+
 const Posts = () => {
   return (
     <div>

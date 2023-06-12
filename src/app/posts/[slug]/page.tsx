@@ -10,6 +10,15 @@ interface Props {
   }
 }
 
+export const generateMetadata = ({ params }: Props) => {
+  const post = allPosts.find((p) => p._raw.flattenedPath === params.slug)
+
+  return {
+    title: post?.title,
+    description: post?.description
+  }
+}
+
 const PostSlug = ({ params }: Props) => {
   const post = allPosts.find((p) => p._raw.flattenedPath === params.slug)
   let MDXContent
