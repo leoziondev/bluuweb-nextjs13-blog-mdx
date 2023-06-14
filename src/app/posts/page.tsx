@@ -1,5 +1,4 @@
-import Link from 'next/link'
-
+import PostList from '../components/post/PostList'
 import Container from '../components/ui/Container'
 import Content from '../components/ui/Content'
 
@@ -17,25 +16,10 @@ export const metadata = {
 const Posts = () => {
   return (
     <Container>
-      <Content>
-        <h1 className="text-center my-4 text-3xl">Posts</h1>
-        <div className="grid gap-4">
-          {posts.map((post) => (
-            <article key={post._id}>
-              <h2 className="text-2xl">
-                <Link href={post.url}>{post.title}</Link>
-              </h2>
-              <time className="text-xs">
-                {new Date(post.date).toLocaleDateString('pt-BR', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
-              </time>
-            </article>
-          ))}
-        </div>
-      </Content>
+      <h1 className="text-center my-4 text-3xl">Posts</h1>
+      <div className="grid gap-6 mt-8">
+        <PostList posts={posts} />
+      </div>
     </Container>
   )
 }
