@@ -1,6 +1,6 @@
-import PostList from '../components/post/PostList'
-import PostPagination from '../components/post/PostPagination'
-import Container from '../components/ui/Container'
+import PostList from '../../components/post/PostList'
+import PostPagination from '../../components/post/PostPagination'
+import Container from '../../components/ui/Container'
 
 import { getPostsPagination, totalPages } from '../../utils/PostPaginationUtils'
 
