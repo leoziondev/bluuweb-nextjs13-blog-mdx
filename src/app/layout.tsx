@@ -1,7 +1,10 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Commissioner } from 'next/font/google'
+import Link from 'next/link'
 
-const inter = Inter({ subsets: ['latin'] })
+import Avatar from '../assets/images/avatar.jpg'
+
+const commissioner = Commissioner({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,7 +18,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-slate-50`}>{children}</body>
+      <body className={`${commissioner.className} bg-slate-50`}>
+        <main className="grid min-h-screen items-center py-20">
+          <div className="mx-auto rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 sm:w-[500px] md:w-[700px]">
+            <div className="rounded bg-slate-100 p-8">
+              <Link href="/">
+                <img
+                  src={Avatar.src}
+                  alt="Imagen avatar de presentación"
+                  className="mx-auto -mt-20 mb-8 rounded-full "
+                  width={100}
+                  height={100}
+                />
+              </Link>
+              {children}
+            </div>
+          </div>
+        </main>
+      </body>
     </html>
   )
 }
