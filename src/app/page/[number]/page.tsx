@@ -20,6 +20,12 @@ export const metadata = {
   description: 'Describe posts - Generate by create next app'
 }
 
+export const generateStaticParams = () => {
+  return Array.from({ length: totalPages }).map((_, index) => ({
+    number: `${index + 1}`
+  }))
+}
+
 const LayoutPages = ({ params }: Props) => {
   let arrayCurrentPostsPage
 
