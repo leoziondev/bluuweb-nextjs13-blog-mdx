@@ -4,10 +4,13 @@ import PostList from '../../../components/post/PostList'
 import PostPagination from '../../../components/post/PostPagination'
 import Container from '../../../components/ui/Container'
 
-import {
-  getPostsPagination,
-  totalPages
-} from '../../../utils/PostPaginationUtils'
+import { getPagination } from '../../../utils/pagination'
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { allPosts, Post } from 'contentlayer/generated'
+
+const posts: Post[] = allPosts.sort((a, b) => b.date.localeCompare(a.date))
 
 interface Props {
   params: {
@@ -21,32 +24,31 @@ export const metadata = {
 }
 
 export const generateStaticParams = () => {
-  return Array.from({ length: totalPages }).map((_, index) => ({
+  return Array.from({ length: posts.length }).map((_, index) => ({
     number: `${index + 1}`
   }))
 }
 
 const LayoutPages = ({ params }: Props) => {
-  let arrayCurrentPostsPage
+  let arrayCurrentPosts
+  let totalPagesNumber
 
   try {
-    if (!/^\d+$/.test(params.number)) {
-      throw new Error('Invalid page number')
-    }
-    const currentPage = parseInt(params.number)
-    arrayCurrentPostsPage = getPostsPagination(currentPage).currentPosts
+    const { currentPosts, totalPages } = getPagination(posts, 2, params.number)
+    arrayCurrentPosts = currentPosts
+    totalPagesNumber = totalPages
   } catch (error) {
     notFound()
   }
 
   return (
     <Container>
-      <h1 className="text-center my-4 text-3xl">Posts</h1>
-      <div className="grid gap-6 mt-8">
-        <PostList posts={arrayCurrentPostsPage} />
-        {totalPages > 1 && (
+      <h1 className="my-4 text-center text-3xl">Posts</h1>
+      <div className="mt-8 grid gap-6">
+        <PostList posts={arrayCurrentPosts} />
+        {totalPagesNumber > 1 && (
           <PostPagination
-            totalPages={totalPages}
+            totalPages={totalPagesNumber}
             currentPage={parseInt(params.number)}
           />
         )}

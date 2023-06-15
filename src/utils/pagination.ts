@@ -1,15 +1,15 @@
-const isNumber = (value: string) => !/^\d+$/.test(value)
+const isNumeric = (str: string) => /^\d+$/.test(str)
 
 export const getPagination = <T>(
   items: T[],
   postsPerPage = 2,
   currentPage = '1'
 ) => {
-  if (!isNumber(currentPage)) {
+  if (!isNumeric(currentPage)) {
     throw new Error('Invalid page number')
   }
 
-  const currentPageInt = parseInt(currentPage, 10)
+  const currentPageInt = parseInt(currentPage)
   const totalPosts = items.length
   const totalPages = Math.ceil(totalPosts / postsPerPage)
 

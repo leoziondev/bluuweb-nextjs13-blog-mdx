@@ -2,7 +2,13 @@ import PostList from '../../components/post/PostList'
 import PostPagination from '../../components/post/PostPagination'
 import Container from '../../components/ui/Container'
 
-import { getPostsPagination, totalPages } from '../../utils/PostPaginationUtils'
+import { getPagination } from '../../utils/pagination'
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { allPosts, Post } from 'contentlayer/generated'
+
+const posts: Post[] = allPosts.sort((a, b) => b.date.localeCompare(a.date))
 
 export const metadata = {
   title: 'List all posts',
@@ -10,12 +16,12 @@ export const metadata = {
 }
 
 const Posts = () => {
-  const { currentPosts } = getPostsPagination()
+  const { currentPosts, totalPages } = getPagination(posts)
 
   return (
     <Container>
-      <h1 className="text-center my-4 text-3xl">Posts</h1>
-      <div className="grid gap-6 mt-8">
+      <h1 className="my-4 text-center text-3xl">Posts</h1>
+      <div className="mt-8 grid gap-6">
         <PostList posts={currentPosts} />
         {totalPages > 1 && <PostPagination totalPages={totalPages} />}
       </div>
