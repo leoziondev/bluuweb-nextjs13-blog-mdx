@@ -1,4 +1,5 @@
 import PostList from '../../components/post/PostList'
+import PostPagination from '../../components/post/PostPagination'
 import Container from '../../components/ui/Container'
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -32,6 +33,7 @@ const LayoutPages = ({ params }: Props) => {
       <h1 className="text-center my-4 text-3xl">Posts</h1>
       <div className="grid gap-6 mt-8">
         <PostList posts={currentPost} />
+        <PostPagination totalPages={totalPages} currentPage={currentPage} />
       </div>
     </Container>
   )
