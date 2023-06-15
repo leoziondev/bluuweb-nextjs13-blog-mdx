@@ -17,7 +17,7 @@ const Posts = () => {
       <h1 className="text-center my-4 text-3xl">Posts</h1>
       <div className="grid gap-6 mt-8">
         <PostList posts={currentPosts} />
-        <PostPagination totalPages={totalPages} />
+        {totalPages > 1 && <PostPagination totalPages={totalPages} />}
       </div>
     </Container>
   )

@@ -38,10 +38,12 @@ const LayoutPages = ({ params }: Props) => {
       <h1 className="text-center my-4 text-3xl">Posts</h1>
       <div className="grid gap-6 mt-8">
         <PostList posts={arrayCurrentPostsPage} />
-        <PostPagination
-          totalPages={totalPages}
-          currentPage={parseInt(params.number)}
-        />
+        {totalPages > 1 && (
+          <PostPagination
+            totalPages={totalPages}
+            currentPage={parseInt(params.number)}
+          />
+        )}
       </div>
     </Container>
   )
