@@ -1,7 +1,6 @@
 import Link from 'next/link'
 
 import Container from './components/ui/Container'
-import Content from './components/ui/Content'
 
 const NotFound = () => {
   return (
