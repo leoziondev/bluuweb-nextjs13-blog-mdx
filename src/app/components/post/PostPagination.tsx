@@ -5,7 +5,7 @@ interface Props {
   currentPage?: number
 }
 
-const PostPagination = ({ totalPages, currentPage }: Props) => {
+const PostPagination = ({ totalPages, currentPage = 1 }: Props) => {
   return (
     <div className="flex gap-4">
       <Link
