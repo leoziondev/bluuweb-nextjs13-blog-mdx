@@ -1,5 +1,6 @@
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
+import ButtonBack from '../../../components/ui/ButtonBack'
 import Container from '../../../components/ui/Container'
 import Content from '../../../components/ui/Content'
 
@@ -42,15 +43,22 @@ const PostSlug = ({ params }: Props) => {
   return (
     <Container>
       <Content>
-        <h1 className="my-4 text-center text-3xl">{post.title}</h1>
-        <time className="text-xs">
-          {new Date(post.date).toLocaleDateString('pt-BR', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          })}
-        </time>
+        <h1 className="text-center text-2xl font-bold uppercase">
+          {post.title}
+        </h1>
+        <div className="mb-8 text-center">
+          <time className="text-gray-700">
+            {new Date(post.date).toLocaleDateString('es-ES', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </time>
+        </div>
         <MDXContent />
+        <div className="mt-8 text-center">
+          <ButtonBack>Voltar</ButtonBack>
+        </div>
       </Content>
     </Container>
   )

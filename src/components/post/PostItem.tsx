@@ -1,5 +1,7 @@
 import Link from 'next/link'
 
+import ButtonLink from '../ui/ButtonLink'
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { Post } from 'contentlayer/generated'
@@ -10,17 +12,19 @@ interface Props {
 
 const PostItem = ({ post }: Props) => {
   return (
-    <article className="bg-white rounded-md hover:shadow-md transition-all ease-in-out duration-300 p-8">
-      <h2 className="text-2xl">
+    <article className="rounded bg-slate-50 p-4">
+      <h2 className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-4xl font-bold text-transparent">
         <Link href={post.url}>{post.title}</Link>
       </h2>
-      <time className="text-xs">
-        {new Date(post.date).toLocaleDateString('pt-BR', {
+      <time>
+        {new Date(post.date).toLocaleDateString('es-ES', {
           year: 'numeric',
           month: 'long',
           day: 'numeric'
         })}
       </time>
+      <p>{post.description}</p>
+      <ButtonLink href={post.url}>Seguir leyendo</ButtonLink>
     </article>
   )
 }

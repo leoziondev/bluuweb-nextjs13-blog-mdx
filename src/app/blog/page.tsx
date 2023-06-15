@@ -20,7 +20,6 @@ const Posts = () => {
 
   return (
     <Container>
-      <h1 className="my-4 text-center text-3xl">Posts</h1>
       <div className="mt-8 grid gap-6">
         <PostList posts={currentPosts} />
         {totalPages > 1 && <PostPagination totalPages={totalPages} />}
