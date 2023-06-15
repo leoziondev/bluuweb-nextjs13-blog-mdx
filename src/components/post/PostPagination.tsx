@@ -12,7 +12,7 @@ const PostPagination = ({ totalPages, currentPage = 1 }: Props) => {
         href={`/page/${currentPage - 1}`}
         className={`${
           currentPage === 1
-            ? 'text-slate-500 pointer-events-none'
+            ? 'pointer-events-none text-slate-500'
             : 'text-indigo-600'
         }`}
       >
@@ -24,7 +24,7 @@ const PostPagination = ({ totalPages, currentPage = 1 }: Props) => {
           key={index}
           className={`${
             currentPage === index + 1
-              ? 'text-slate-500 pointer-events-none'
+              ? 'pointer-events-none text-slate-500'
               : 'text-indigo-600'
           }`}
         >
@@ -35,7 +35,7 @@ const PostPagination = ({ totalPages, currentPage = 1 }: Props) => {
         href={`/page/${currentPage + 1}`}
         className={`${
           currentPage === totalPages
-            ? 'text-slate-500 pointer-events-none'
+            ? 'pointer-events-none text-slate-500'
             : 'text-indigo-600'
         }`}
       >

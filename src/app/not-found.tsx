@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 import ButtonBack from '../components/ui/ButtonBack'
 import Container from '../components/ui/Container'
 

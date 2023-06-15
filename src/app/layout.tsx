@@ -1,7 +1,8 @@
-import './globals.css'
 import { Commissioner } from 'next/font/google'
+import Image from 'next/image'
 import Link from 'next/link'
 
+import './globals.css'
 import Avatar from '../assets/images/avatar.jpg'
 
 const commissioner = Commissioner({ subsets: ['latin'] })
@@ -23,7 +24,7 @@ export default function RootLayout({
           <div className="mx-auto rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1 sm:w-[500px] md:w-[700px]">
             <div className="rounded bg-slate-100 p-8">
               <Link href="/">
-                <img
+                <Image
                   src={Avatar.src}
                   alt="Imagen avatar de presentación"
                   className="mx-auto -mt-20 mb-8 rounded-full "
