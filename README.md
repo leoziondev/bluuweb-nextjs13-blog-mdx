@@ -27,6 +27,10 @@ Prettier
 ```
 npm install --save-dev --save-exact prettier
 ```
+Prettier Plugin Tailwindcss
+```
+npm i prettier-plugin-tailwindcss
+```
 Eslint Config Prettier
 ```
 npm i eslint-config-prettier --save-dev
